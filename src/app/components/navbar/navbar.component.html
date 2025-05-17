@@ -1,1 +1,19 @@
-<p>navbar works!</p>
+<mat-toolbar>
+  <span>{{ title }}</span>
+  <span class="example-spacer"></span>
+
+  @if (responsive.isMobile$ | async) {
+  <button type="button" mat-icon-button aria-label="Open sidenav">
+    <mat-icon>menu</mat-icon>
+  </button>
+  } @else { @for (item of navData; track $index) {
+  <a
+    mat-button
+    [href]="'#' + item.toLowerCase()"
+    (click)="setActive(item)"
+    [color]="activeLink === item ? 'primary' : undefined"
+  >
+    {{ item }}
+  </a>
+  } }
+</mat-toolbar>
