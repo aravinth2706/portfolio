@@ -1,0 +1,33 @@
+:host {
+  height: calc(100vh - 64px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  position: relative;
+  section {
+    .heading {
+      font-size: 32px;
+      span {
+        color: blue;
+      }
+    }
+    .sub-heading {
+      font-size: 22px;
+    }
+    .intro {
+      max-width: 700px;
+      font-size: 18px;
+    }
+    .resume-btn {
+      border-radius: 5px !important;
+      margin-top: 10px;
+    }
+    .down-arrow-icon {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
