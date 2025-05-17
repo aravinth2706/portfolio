@@ -6,11 +6,11 @@ import { Observable, map, shareReplay } from 'rxjs';
   providedIn: 'root',
 })
 export class ResponsiveService {
-  isHandset$: Observable<boolean>;
+  isMobile$: Observable<boolean>;
   isTablet$: Observable<boolean>;
 
   constructor(private breakpointObserver: BreakpointObserver) {
-    this.isHandset$ = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
+    this.isMobile$ = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
       map((result) => result.matches),
       shareReplay()
     );
@@ -21,3 +21,13 @@ export class ResponsiveService {
     );
   }
 }
+
+// Breakpoints.XSmall   // < 600px (mobile)
+// Breakpoints.Small    // 600 - 959px (tablet portrait)
+// Breakpoints.Medium   // 960 - 1279px (tablet landscape)
+// Breakpoints.Large    // 1280 - 1919px (desktop)
+// Breakpoints.XLarge   // > 1920px
+
+// Breakpoints.Handset  // XSmall & Small
+// Breakpoints.Tablet   // Medium
+// Breakpoints.Web      // Large & XLarge
